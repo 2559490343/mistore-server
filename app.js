@@ -8,6 +8,14 @@ const logger = require('koa-logger')
 
 const users = require('./routes/users')
 
+//操作数据库,引入这两个模块
+const mongoose = require('mongoose')
+const dbConfig = require('./dbs/config')
+//mongoose 连接数据库
+mongoose.connect(dbConfig.dbs, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
 // error handler
 onerror(app)
 
